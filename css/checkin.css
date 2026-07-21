@@ -1,0 +1,575 @@
+/* Reseteo básico y fuentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Puedes cambiarla por una fuente más específica si lo deseas */
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Icono de menú hamburguesa */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    margin-right: 15px;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 2px;
+    background-color: #333;
+}
+
+.logo {
+    color: #d10019; /* Rojo de RIU */
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #000;
+}
+
+.main-links {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-outline {
+    border: 1px solid #999;
+    padding: 8px 16px;
+    border-radius: 2px;
+    color: #555;
+}
+
+.btn-outline:hover {
+    border-color: #333;
+    color: #333;
+}
+
+/* --- Sección Hero --- */
+.hero-section {
+    display: flex;
+    height: calc(100vh - 75px); /* Altura total menos la barra de navegación */
+    position: relative;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 10% 5% 10% 10%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #2b2b2b;
+    margin-bottom: 30px;
+}
+
+.hero-content p {
+    font-size: 22px;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.divider {
+    width: 250px;
+    height: 4px;
+    background-color: #333;
+}
+
+/* --- Contenedor de la Imagen Diagonal --- */
+.hero-image-container {
+    flex: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    /* Aquí ocurre la magia de la diagonal usando clip-path */
+    clip-path: polygon(45% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Ajustes responsivos básicos para pantallas pequeñas */
+@media (max-width: 1024px) {
+    .hero-content h1 { font-size: 60px; }
+    .hero-content p { font-size: 18px; }
+    .nav-right, .main-links { display: none; } /* Oculta enlaces en móvil para simplificar */
+}
+/* --- Reseteo y Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* --- Barra de Navegación (Sticky para que se quede arriba al bajar) --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 20px; }
+.menu-icon { display: flex; flex-direction: column; cursor: pointer; gap: 4px; margin-right: 15px; }
+.menu-icon span { width: 25px; height: 2px; background-color: #333; }
+.logo { color: #d10019; font-size: 32px; font-weight: 900; letter-spacing: 2px; margin-right: 20px; }
+.navbar a { text-decoration: none; color: #555; font-size: 14px; transition: color 0.3s; }
+.navbar a:hover { color: #000; }
+.main-links { display: flex; gap: 20px; }
+.btn-outline { border: 1px solid #999; padding: 8px 16px; border-radius: 2px; color: #555; }
+.btn-outline:hover { border-color: #333; color: #333; }
+
+/* IMAGEN FIJA */
+.fixed-image-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35%; /* 🔥 CAMBIA ESTO: Antes era 45%. Entre más pequeño el número (ej. 35% o 40%), más a la derecha se va */
+    height: 100vh;
+    z-index: 1;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+
+/* --- CONTENEDOR DE SCROLL --- */
+.scrollable-content {
+    position: relative;
+    z-index: 10; 
+    width: 100%;
+}
+
+.content-section {
+    /* Cambiamos el width de 50% a un max-width fijo para evitar que se aplaste */
+    width: 100%;
+    max-width: 600px; /* Esto asegura que el texto tenga suficiente espacio */
+    padding-left: 10%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column; /* ¡Muy importante! Fuerza que los elementos vayan uno debajo del otro */
+    justify-content: center;
+}
+
+/* --- PARTE 1: Hero Estilos --- */
+.hero-section {
+    padding-top: 15vh;
+    padding-bottom: 40px;
+}
+
+.hero-section h1 { 
+    font-size: 80px; 
+    font-weight: 800; 
+    line-height: 1.1; 
+    color: #2b2b2b; 
+    margin-bottom: 30px;
+    white-space: nowrap; /* Evita que la palabra "Check-in" se parta a la mitad */
+}
+
+.hero-section p { 
+    font-size: 22px; 
+    color: #666; 
+    font-weight: 300; 
+    line-height: 1.4; 
+    margin-bottom: 30px; 
+}
+
+.divider { 
+    width: 250px; 
+    height: 4px; 
+    background-color: #333; 
+}
+
+/* --- PARTE 2: Formulario Estilos --- */
+.form-section {
+    padding-top: 20px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Selector de Hotel */
+.select-wrapper {
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.hotel-select {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    appearance: none; /* Quita la flecha por defecto */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23666" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 15px center;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Botón Check-in */
+.btn-checkin {
+    background-color: #b3b3b3; /* Gris claro (deshabilitado en la imagen) */
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: not-allowed;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tarjeta de Información */
+.info-card {
+    background-color: #f4f5f8;
+    border: 1px solid #e0e4eb;
+    padding: 30px;
+    max-width: 450px;
+    border-radius: 2px;
+}
+
+.info-card p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.red-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    color: #d10019;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.red-link:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+    .content-section { width: 100%; padding-right: 10%; }
+    .fixed-image-container { display: none; } /* Oculta la imagen en móviles para mejor lectura */
+    .hero-section h1 { font-size: 50px; }
+}
+.btn-checkin:not(:disabled):hover {
+    background-color: #a00014;
+}
+
+.contact-dropdown {
+    position: relative;
+}
+
+.contact-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-width: 200px;
+}
+
+.contact-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-dropdown:hover .contact-menu {
+    display: block;
+}
+.lang-dropdown {
+    position: relative;
+}
+
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    min-width: 150px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.lang-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.lang-menu a:hover {
+    background: #f5f5f5;
+}
+
+/* clase activa */
+.lang-dropdown.active .lang-menu {
+    display: block;
+}
+
+.btn-outline {
+    border: 1px solid #999;
+    padding: 8px 16px;
+    border-radius: 2px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+/* 🔴 EFECTO HOVER (como tu imagen) */
+.btn-outline:hover {
+    background-color: #b85c5c; /* rojo suave como el de la imagen */
+    color: #fff;
+    border-color: #b85c5c;
+}
+
+.hero-image {
+    transition: opacity 0.5s ease;
+}
+/* --- ESTILOS DEL MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modal-box h2 {
+    color: #222;
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.modal-subtitle {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+/* Botones Sociales */
+.social-logins {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-google, .btn-facebook {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+.btn-google {
+    background: white;
+    color: #333;
+}
+
+.btn-facebook {
+    background: #1877F2;
+    color: white;
+    border-color: #1877F2;
+}
+
+/* Formularios del modal */
+.modal-form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #222;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.modal-input:focus {
+    outline: none;
+    border-color: #007bff; /* Color azul al escribir */
+}
+
+/* Contenedor relativo para el ojito de contraseña */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+}
+
+/* Enlaces de "He olvidado..." */
+.forgot-link-container {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.forgot-link {
+    color: #d88383; /* Color asalmonado de la imagen */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Botón Entrar */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-entrar {
+    background-color: #E2002B; /* Rojo Riu */
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #b50022;
+}
+
+/* DROPDOWN IDIOMA */
+.lang-dropdown {
+    position: relative;
+}
+
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.lang-menu a {
+    display: block;
+    padding: 10px;
+}
+

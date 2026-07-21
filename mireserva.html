@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIU HOTELS & RESORTS- Inicio</title>
+    <link rel="stylesheet" href="css/mireserva.css">
+    <!-- Iconos (FontAwesome vía CDN para los iconos de check-in, usuario, etc) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+<header class="navbar">
+
+    <div class="nav-left">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+        <img src="img/riu.svg" alt="RIU Hotels & Resorts">
+    </div>
+    </div>
+
+    <!-- 🔥 AHORA SÍ está separado -->
+    <div class="nav-right">
+        <a href="#"><i class="fa-solid fa-headset"></i> Contacto 
+            <i class="fa-solid fa-chevron-down small-icon"></i>
+        </a>
+
+        <div class="language-dropdown-container">
+            <a href="#" id="idioma-btn">
+                <i class="fa-solid fa-globe"></i> Idioma 
+                <i class="fa-solid fa-chevron-down small-icon"></i>
+            </a>
+
+            <ul class="language-dropdown-menu" id="language-menu">
+                <li><a href="#">Deutsch</a></li>
+                <li><a href="#">Español</a></li>
+                <li><a href="#">English</a></li>
+                <li><a href="#">Français</a></li>
+                <li><a href="#">Português</a></li>
+                <li><a href="#">Русский</a></li>
+                <li><a href="#">中国人</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+</header>
+<!-- SECCIÓN DE SALUDO EN BLANCO -->
+<section class="saludo-container">
+    <div class="saludo-usuario">
+        <h1 id="nombreCliente">¡Hola de nuevo FREDY!</h1>
+        <p id="numeroRiu"></p>
+    </div>
+</section>
+
+<!-- EL RESTO DE TU CONTENIDO GRIS IRÁ AQUÍ ABAJO -->
+<!-- CONTENEDOR PRINCIPAL GRIS -->
+<main class="contenedor-reservas">
+    
+    <!-- TARJETA BLANCA -->
+    <div class="tarjeta-reservas">
+        <h2>Todas tus reservas</h2>
+        <p class="descripcion-reservas">Aquí puedes consultar todas tus reserervas en los hoteles RIU</p>
+
+        <!-- ENCABEZADOS DE LA TABLA -->
+        <div class="tabla-encabezado">
+            <span>Localizador</span>
+            <span>Mi estado</span>
+            <span>Hotel</span>
+            <span>Llegada</span>
+            <span>Salida</span>
+            <span>Vuelos</span> <!-- 🔥 NUEVA COLUMNA -->
+            <span>Total noches</span>
+        </div>
+
+        <!-- CONTENIDO DE LA TABLA -->
+        <div class="tabla-contenido">
+            
+            <!-- Fila de Reserva 1 -->
+            <div class="fila-reserva">
+                <span id="reservaLocalizador">WRC4OMRR</span>
+
+            <span class="estado-confirmado">Confirmada</span>
+            <span>Riu cancún</span>
+            <span>26 jul</span>
+            <span>30 jul</span>
+            <span>Sí</span>
+            <span>4</span>
+            </div>
+
+            <!-- Fila de Reserva 2 -->
+            <div class="fila-reserva">
+                <span></span>
+                <span class="estado-cancelado"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> <!-- Espacio vacío para la columna vuelos -->
+                <span></span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- NUEVA SECCIÓN DE PUNTOS E INFORMACIÓN -->
+    <div class="dashboard-grid">
+        
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="columna-izq">
+            
+            <!-- Tarjeta: Mis Puntos -->
+            <div class="tarjeta-info">
+                <h3>Mis puntos</h3>
+                <div class="grid-puntos">
+                    <div class="punto-item gris">
+                        <span>Saldo de puntos</span>
+                        <strong>0 <small>puntos</small></strong>
+                    </div>
+                    <div class="punto-item">
+                        <span>Noches totales</span>
+                        <strong>0 <small>noches</small></strong>
+                    </div>
+                    <div class="punto-item">
+                        <span>Bloqueados</span>
+                        <strong>0 <small>puntos</small></strong>
+                    </div>
+                    <div class="punto-item">
+                        <span>Disponibles</span>
+                        <strong>500.00 <small>puntos</small></strong>
+                    </div>
+                </div>
+                <p class="texto-pequeno">Incluye Crédito Exclusivo de {0} puntos. ⓘ</p>
+                
+                <!-- Círculo decorativo -->
+                <div class="circulo-grafico">
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <!-- Tarjeta: Invita a un amigo -->
+            <div class="tarjeta-info tarjeta-invita">
+                <h3>Invita a un amigo y gana 100 puntos gratis*</h3>
+                <button class="btn-invitar">Invitar a un amigo</button>
+                <p class="texto-legal">*Los puntos se registrarán como definitivos cuando la cuenta registre su primera reserva...</p>
+            </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="columna-der">
+            <!-- NUEVA TARJETA: HUÉSPEDES -->
+            <div class="tarjeta-info">
+                <h3>Huéspedes Registrados</h3>
+                <ul class="lista-huespedes">
+                    <li><i class="fa-solid fa-user"></i> Fredy José Mejía Rondón (Titular)</li>
+                    <li><i class="fa-solid fa-user"></i> Laura Daniela Uribe Sepúlveda</li>
+                    <li><i class="fa-solid fa-child"></i> (Niño)</li>
+                </ul>
+            </div>
+            <!-- Tarjeta: Condiciones Generales -->
+            <div class="tarjeta-info">
+                <h3>Condiciones Generales</h3>
+                <hr class="linea-separadora">
+                <ul class="lista-condiciones">
+                    <li>Check-in a partir de las 15:00 hrs.</li>
+                    <li>Check-out hasta las 12:00 hrs.</li>
+                    <li>Presentar identificación oficial y confirmación de reserva.</li>
+                    <li>Si pagó con tarjeta, deberá presentarla en recepción.</li>
+                    <li>Transportación Aeropuerto - Hotel - Aeropuerto Confirmado.</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta: Reclamación de puntos -->
+            <div class="tarjeta-info">
+                <h3>Reclamación de puntos</h3>
+                <p class="texto-reclamacion">
+                    Todos los miembros de RIU Class acumulan puntos por cada noche que se alojan en nuestros hoteles RIU. 
+                    Si desde la fecha de alta y con un máximo de 12 meses desde el check out, viajaste con tu pareja o hijos de 
+                    entre 2 y 18 años, regístralos en "Mi Perfil" y luego rellena este formulario.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+
+
+
+
+
+</main>
+
+    <script>
+     // --- MENÚ DE IDIOMAS ---
+    const idiomaBtn = document.getElementById('idioma-btn');
+    const languageMenu = document.getElementById('language-menu');
+
+    if (idiomaBtn && languageMenu) {
+
+        idiomaBtn.addEventListener('click', function (e) {
+    e.stopPropagation(); // 🔥 evita conflicto
+    languageMenu.classList.toggle('show');
+});
+
+document.addEventListener('click', function () {
+    languageMenu.classList.remove('show');
+});
+
+languageMenu.addEventListener('click', function (e) {
+    e.stopPropagation(); // 🔥 permite hacer click dentro del menú
+});
+
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                languageMenu.classList.remove('show');
+            }
+        });
+    }
+    </script>
+   <script src="js/mireserva.js"></script>
+</body>
+</html>

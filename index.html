@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIU - Check-in Online</title>
+    <link rel="stylesheet" href="css/checkin.css">
+</head>
+<body>
+<!-- Modal de Inicio de Sesión -->
+<div id="loginModal" class="modal-overlay">
+    <div class="modal-box">
+        <!-- Botón de cerrar (X) -->
+        <span class="close-modal" id="closeModal">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#333"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </span>
+        
+        <h2>Bienvenido de nuevo</h2>
+        <p class="modal-subtitle">ACCEDE A TU CUENTA DESDE AQUÍ</p>
+
+        <!-- Botones sociales -->
+        <div class="social-logins">
+            <button class="btn-google">
+                <svg viewBox="0 0 48 48" width="18" height="18"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Login Google
+            </button>
+            <button class="btn-facebook">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                Login Facebook
+            </button>
+        </div>
+
+        <!-- Formularios -->
+        <div class="modal-form-group">
+            <label>Nº de Riu Class</label>
+            <input type="text" class="modal-input">
+            <div class="forgot-link-container">
+                <a href="#" class="forgot-link">HE OLVIDADO MI Nº RIU CLASS</a>
+            </div>
+        </div>
+
+        <div class="modal-form-group">
+            <label>Contraseña</label>
+            <div class="password-wrapper">
+                <input type="password" id="loginPassword" class="modal-input">
+                <span class="toggle-password" id="togglePassword">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#666"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                </span>
+            </div>
+            <div class="forgot-link-container">
+                <a href="#" class="forgot-link">HE OLVIDADO MI CONTRASEÑA</a>
+            </div>
+        </div>
+
+        <!-- Botón Entrar -->
+        <div class="modal-footer">
+            <button class="btn-entrar">Entrar</button>
+        </div>
+    </div>
+</div>
+    <!-- Barra de Navegación (Se queda arriba) -->
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="img/riu.svg" alt="RIU Hotels & Resorts">
+            <nav class="main-links">
+                <a href="#">Hoteles</a>
+                <a href="#">Vuelo + Hotel</a>
+                <a href="#">Riu Class</a>
+                <a href="#">Riu Party</a>
+            </nav>
+        </div>
+        
+        <div class="nav-right">
+            <a href="#">Check-in</a>
+            <a href="#" id="linkMisReservas">Mis Reservas</a>
+            <a href="tel:+521234567890">Contacta con nosotros ▼</a>
+            <div class="lang-dropdown">
+    <a href="#" class="lang-toggle">Idioma ▼</a>
+
+    <div class="lang-menu">
+        <a href="#" data-lang="en">Inglés</a>
+        <a href="#" data-lang="es">Español</a>
+    </div>
+</div>
+
+            <a href="#" id="linkRiuClass" class="btn-outline">Mi cuenta RIU Class</a>
+        </div>
+    </header>
+
+    <!-- Imagen Fija de Fondo (Estática) -->
+   <div class="fixed-image-container">
+    <img src="img/fondo-3.jpg" class="hero-image">
+
+    <!-- NUEVA CAPA TRANSLÚCIDA -->
+    <div class="diagonal-overlay"></div>
+</div>
+
+
+    <!-- Área de Contenido que hace Scroll -->
+    <main class="scrollable-content">
+        
+        <!-- PARTE 1: Hero -->
+        <section class="content-section hero-section">
+            <h1>Check-in<br>Online</h1>
+            <p>Registra los datos de tu reserva y evita colas<br>de espera a la llegada al hotel</p>
+            <div class="divider"></div>
+        </section>
+
+        <!-- PARTE 2: Formulario de Selección -->
+        <section class="content-section form-section">
+            <h2 class="section-title">Selecciona un hotel</h2>
+            
+            <div class="select-wrapper">
+                <select class="hotel-select">
+                    <option value="" disabled selected>Selecciona un hotel</option>
+                   <optgroup label="ALEMANIA">
+<option value="riu-plaza-berlin">Hotel Riu Plaza Berlin</option>
+</optgroup>
+
+<optgroup label="Aruba">
+<option value="riu-palace-antillas">Hotel Riu Palace Antillas</option>
+<option value="riu-palace-aruba">Hotel Riu Palace Aruba</option>
+</optgroup>
+
+<optgroup label="Bahamas">
+<option value="riu-palace-paradise-island">Hotel Riu Palace Paradise Island</option>
+</optgroup>
+
+<optgroup label="Cabo Verde">
+<option value="riu-cabo-verde">Hotel Riu Cabo Verde</option>
+<option value="riu-karamboa">Hotel Riu Karamboa</option>
+<option value="riu-palace-boavista">Hotel Riu Palace Boavista</option>
+<option value="riu-palace-santa-maria">Hotel Riu Palace Santa Maria</option>
+<option value="riu-touareg">Hotel Riu Touareg</option>
+</optgroup>
+
+<optgroup label="Canadá">
+<option value="riu-plaza-toronto">Hotel Riu Plaza Toronto</option>
+</optgroup>
+
+<optgroup label="Costa Rica">
+<option value="riu-guanacaste">Hotel Riu Guanacaste</option>
+<option value="riu-palace-costa-rica">Hotel Riu Palace Costa Rica</option>
+</optgroup>
+
+<optgroup label="Emiratos Árabes Unidos">
+<option value="riu-dubai">Hotel Riu Dubai</option>
+</optgroup>
+
+<optgroup label="España">
+<option value="riu-arecas">Hotel Riu Arecas</option>
+<option value="riu-bravo">Hotel Riu Bravo</option>
+<option value="riu-buenavista">Hotel Riu Buenavista</option>
+<option value="riu-chiclana">Hotel Riu Chiclana</option>
+<option value="riu-concordia">Hotel Riu Concordia</option>
+<option value="riu-costa-del-sol">Hotel Riu Costa del Sol</option>
+<option value="riu-festival">Hotel Riu Festival</option>
+<option value="riu-gran-canaria">Hotel Riu Gran Canaria</option>
+<option value="riu-monica">Hotel Riu Monica</option>
+<option value="riu-oliva-beach">Hotel Riu Oliva Beach Resort</option>
+<option value="riu-palace-calypso">Hotel Riu Palace Calypso</option>
+<option value="riu-palace-jandia">Hotel Riu Palace Jandia</option>
+<option value="riu-palace-la-mola">Hotel Riu Palace La Mola</option>
+<option value="riu-palace-maspalomas">Hotel Riu Palace Maspalomas</option>
+<option value="riu-palace-meloneras">Hotel Riu Palace Meloneras</option>
+<option value="riu-palace-nautilus">Hotel Riu Palace Nautilus</option>
+<option value="riu-palace-oasis">Hotel Riu Palace Oasis</option>
+<option value="riu-palace-palmeras">Hotel Riu Palace Palmeras</option>
+<option value="riu-palace-tenerife">Hotel Riu Palace Tenerife</option>
+<option value="riu-palace-tres-islas">Hotel Riu Palace Tres Islas</option>
+<option value="riu-papayas">Hotel Riu Papayas</option>
+<option value="riu-paraiso-lanzarote">Hotel Riu Paraiso Lanzarote</option>
+<option value="riu-playa-park">Hotel Riu Playa Park</option>
+<option value="riu-plaza-espana">Hotel Riu Plaza España</option>
+<option value="riu-san-francisco">Hotel Riu San Francisco</option>
+<option value="riu-vista-mar">Hotel Riu Vista Mar</option>
+</optgroup>
+
+<optgroup label="Ilanda">
+<option value="riu-plaza-the-gresham-dublin">Hotel Riu Plaza The Gresham Dublin</option>
+</optgroup>
+
+<optgroup label="Jamaica">
+<option value="riu-montego-bay">Hotel Riu Montego Bay</option>
+<option value="riu-negril">Hotel Riu Negril</option>
+<option value="riu-ocho-rios">Hotel Riu Ocho Rios</option>
+<option value="riu-palace-aquarelle">Hotel Riu Palace Aquarelle</option>
+<option value="riu-palace-jamaica">Hotel Riu Palace Jamaica</option>
+<option value="riu-palace-tropical-bay">Hotel Riu Palace Tropical Bay</option>
+<option value="riu-reggae">Hotel Riu Reggae</option>
+</optgroup>
+
+<optgroup label="Maldivas">
+<option value="riu-atoll">Hotel Riu Atoll</option>
+<option value="riu-palace-maldivas">Hotel Riu Palace Maldivas</option>
+</optgroup>
+
+<optgroup label="México">
+<option value="riu-cancun">Hotel Riu Cancun</option>
+<option value="riu-caribe">Hotel Riu Caribe</option>
+<option value="riu-dunamar">Hotel Riu Dunamar</option>
+<option value="riu-emerald-bay">Hotel Riu Emerald Bay</option>
+<option value="riu-jalisco">Hotel Riu Jalisco</option>
+<option value="riu-latino">Hotel Riu Latino</option>
+<option value="riu-lupita">Hotel Riu Lupita</option>
+<option value="riu-palace-baja-california">Hotel Riu Palace Baja California</option>
+<option value="riu-palace-cabo-san-lucas">Hotel Riu Palace Cabo San Lucas</option>
+<option value="riu-palace-costa-mujeres">Hotel Riu Palace Costa Mujeres</option>
+<option value="riu-palace-kukulkan">Hotel Riu Palace Kukulkan</option>
+<option value="riu-palace-las-americas">Hotel Riu Palace Las Americas</option>
+<option value="riu-palace-mexico">Hotel Riu Palace Mexico</option>
+<option value="riu-palace-pacifico">Hotel Riu Palace Pacifico</option>
+<option value="riu-palace-peninsula">Hotel Riu Palace Peninsula</option>
+<option value="riu-palace-riviera-maya">Hotel Riu Palace Riviera Maya</option>
+<option value="riu-palace-playacar">Hotel Riu Palace Playacar</option>
+<option value="riu-plaza-guadalajara">Hotel Riu Plaza Guadalajara</option>
+<option value="riu-santa-fe">Hotel Riu Santa Fe</option>
+<option value="riu-tequila">Hotel Riu Tequila</option>
+<option value="riu-vallarta">Hotel Riu Vallarta</option>
+<option value="riu-ventura">Hotel Riu Ventura</option>
+<option value="riu-yucatan">Hotel Riu Yucatan</option>
+</optgroup>
+
+<optgroup label="Panamá">
+<option value="riu-playa-blanca">Hotel Riu Playa Blanca</option>
+<option value="riu-plaza-panama">Hotel Riu Plaza Panama</option>
+</optgroup>
+
+<optgroup label="Portugal">
+<option value="riu-madeira">Hotel Riu Madeira</option>
+</optgroup>
+
+<optgroup label="Reino Unido">
+<option value="riu-london-westminster">Hotel Riu Plaza London The Westminster</option>
+<option value="riu-london-victoria">Hotel Riu Plaza London Victoria</option>
+</optgroup>
+
+<optgroup label="República Dominicana">
+<option value="riu-bambu">Hotel Riu Bambu</option>
+<option value="riu-palace-bavaro">Hotel Riu Palace Bavaro</option>
+<option value="riu-palace-macao">Hotel Riu Palace Macao</option>
+<option value="riu-palace-punta-cana">Hotel Riu Palace Punta Cana</option>
+<option value="riu-republica">Hotel Riu Republica</option>
+</optgroup>
+
+<optgroup label="Senegal">
+<option value="riu-baobab">Hotel Riu Baobab</option>
+</optgroup>
+
+<optgroup label="Sri Lanka">
+<option value="riu-sri-lanka">Hotel Riu Sri Lanka</option>
+</optgroup>
+
+<optgroup label="Tailandia">
+<option value="riu-palace-phuket">Hotel Riu Palace Phuket</option>
+</optgroup>
+
+<optgroup label="Tanzania">
+<option value="riu-jambo">Hotel Riu Jambo</option>
+<option value="riu-palace-swahili">Hotel Riu Palace Swahili</option>
+<option value="riu-palace-zanzibar">Hotel Riu Palace Zanzibar</option>
+</optgroup>
+
+<optgroup label="USA">
+<option value="riu-plaza-chicago">Hotel Riu Plaza Chicago</option>
+<option value="riu-plaza-fishermans-wharf">Hotel Riu Plaza Fisherman´s Wharf</option>
+<option value="riu-plaza-manhattan-times-square">Hotel Riu Plaza Manhattan Times Square</option>
+<option value="riu-plaza-miami-beach">Hotel Riu Plaza Miami Beach</option>
+<option value="riu-plaza-new-york-times-square">Hotel Riu Plaza New York Times Square</option>
+</optgroup>
+                </select>
+            </div>
+
+            <button class="btn-checkin" disabled>
+                Empezar el check-in <span>&#10140;</span>
+            </button>
+
+            <div class="info-card">
+                <p>Accede con tu cuenta Riu Class para<br>ver tus reservas pendientes.</p>
+                <a href="#" class="red-link">Ver mis reservas <span>&#10140;</span></a> 
+            </div>
+        </section>
+
+        <!-- Espacio extra solo para que puedas probar el scroll -->
+        <div style="height: 100px;"></div>
+
+    </main>
+ <script>
+const select = document.querySelector('.hotel-select');
+const button = document.querySelector('.btn-checkin');
+const image = document.querySelector('.hero-image');
+
+// 📌 Mapa de hoteles → imágenes (Mantenemos tu lista intacta)
+const hotelImages = {
+    "riu-plaza-berlin": "https://www.riu.com/images/hotels/2101-h.jpg",
+    "riu-palace-antillas": "https://www.riu.com/images/hotels/3102-h.jpg",
+    "riu-palace-aruba": "https://www.riu.com/images/hotels/3105-h.jpg",
+    "riu-palace-paradise-island": "https://www.riu.com/images/hotels/4001-h.jpg",
+    "riu-cabo-verde": "https://www.riu.com/images/hotels/803-h.jpg",
+    "riu-funana": "https://www.riu.com/images/hotels/804-h.jpg",
+    "riu-karamboa": "https://www.riu.com/images/hotels/820-h.jpg",
+    "riu-palace-boavista": "https://www.riu.com/images/hotels/823-h.jpg",
+    "riu-palace-santa-maria": "https://www.riu.com/images/hotels/805-h.jpg",
+    "riu-touareg": "https://www.riu.com/images/hotels/822-h.jpg",
+    "riu-plaza-toronto": "https://www.riu.com/images/hotels/6001-h.jpg",
+    "riu-guanacaste": "https://www.riu.com/images/hotels/5401-h.jpg",
+    "riu-palace-costa-rica": "https://www.riu.com/images/hotels/5402-h.jpg",
+    "riu-dubai": "https://www.riu.com/images/hotels/6901-h.jpg",
+    "riu-arecas": "https://www.riu.com/images/hotels/406-h.jpg",
+    "riu-bravo": "https://www.riu.com/images/hotels/108-h.jpg",
+    "riu-buenavista": "https://www.riu.com/images/hotels/410-h.jpg",
+    "riu-chiclana": "https://www.riu.com/images/hotels/504-h.jpg",
+    "riu-concordia": "https://www.riu.com/images/hotels/102-h.jpg",
+    "riu-costa-del-sol": "https://www.riu.com/images/hotels/568-h.jpg",
+    "riu-festival": "https://www.riu.com/images/hotels/107-h.jpg",
+    "riu-gran-canaria": "https://www.riu.com/images/hotels/216-h.jpg",
+    "riu-monica": "https://www.riu.com/images/hotels/561-h.jpg",
+    "riu-oliva-beach-resort": "https://www.riu.com/images/hotels/317-h.jpg",
+    "riu-palace-calypso": "https://www.riu.com/images/hotels/314-h.jpg",
+    "riu-palace-jandia": "https://www.riu.com/images/hotels/305-h.jpg",
+    "riu-palace-la-mola": "https://www.riu.com/images/hotels/143-h.jpg",
+    "riu-palace-maspalomas": "https://www.riu.com/images/hotels/232-h.jpg",
+    "riu-palace-meloneras": "https://www.riu.com/images/hotels/212-h.jpg",
+    "riu-palace-nautilus": "https://www.riu.com/images/hotels/212-h.jpg",
+    "riu-palace-oasis": "https://www.riu.com/images/hotels/215-h.jpg",
+    "riu-palace-palmeras": "https://www.riu.com/images/hotels/231-h.jpg",
+    "riu-palace-tenerife": "https://www.riu.com/images/hotels/405-h.jpg",
+    "riu-palace-tres-islas": "https://www.riu.com/images/hotels/316-h.jpg",
+    "riu-papayas": "https://www.riu.com/images/hotels/205-h.jpg",
+    "riu-paraiso-lanzarote": "https://www.riu.com/images/hotels/611-h.jpg",
+    "riu-playa-park": "https://www.riu.com/images/hotels/116-h.jpg",
+    "riu-plaza-españa": "https://www.riu.com/images/hotels/582-h.jpg",
+    "riu-san-francisco": "https://www.riu.com/images/hotels/105-h.jpg",
+    "riu-vistamar": "https://www.riu.com/images/hotels/217-h.jpg",
+    "riu-plaza-the-gresham-dublin": "https://www.riu.com/images/hotels/1401-h.jpg",
+    "riu-montego-bay": "https://www.riu.com/images/hotels/4901-h.jpg",
+    "riu-negril": "https://www.riu.com/images/hotels/4732-h.jpg",
+    "riu-ocho-rios": "https://www.riu.com/images/hotels/4801-h.jpg",
+    "riu-palace-aquarelle": "https://www.riu.com/images/hotels/4821-h.jpg",
+    "riu-palace-jamaica": "https://www.riu.com/images/hotels/4902-h.jpg",
+    "riu-palace-tropical-bay": "https://www.riu.com/images/hotels/4731-h.jpg",
+    "riu-reggae": "https://www.riu.com/images/hotels/4903-h.jpg",
+    "riu-atoll": "https://www.riu.com/images/hotels/7201-h.jpg",
+    "riu-palace-maldivas": "https://www.riu.com/images/hotels/7202-h.jpg",
+    "riu-palace-tikida-agadir": "https://www.riu.com/images/hotels/6553-h.jpg",
+    "riu-palace-tikida-taghazout": "https://www.riu.com/images/hotels/6556-h.jpg",
+    "riu-tikida-beach": "https://www.riu.com/images/hotels/6552-h.jpg",
+    "riu-tikida-dunas": "https://www.riu.com/images/hotels/6551-h.jpg",
+    "riu-tikida-garden": "https://www.riu.com/images/hotels/6502-h.jpg",
+    "riu-tikida-palmeraie": "https://www.riu.com/images/hotels/6501-h.jpg",
+    "riu-turquoise": "https://www.riu.com/images/hotels/7006-h.jpg",
+    "riu-palace-mauritius": "https://www.riu.com/images/hotels/7006-h.jpg",
+    "riu-cancun": "https://www.riu.com/images/hotels/2801-h.jpg",
+    "riu-caribe": "https://www.riu.com/images/hotels/2803-h.jpg",
+    "riu-dunamar": "https://www.riu.com/images/hotels/2853-h.jpg",
+    "riu-emerald-bay": "https://www.riu.com/images/hotels/3601-h.jpg",
+    "riu-jalisco": "https://www.riu.com/images/hotels/3755-h.jpg",
+    "riu-latino": "https://www.riu.com/images/hotels/2854-h.jpg",
+    "riu-lupita": "https://www.riu.com/images/hotels/2755-h.jpg",
+    "riu-palace-baja-california": "https://www.riu.com/images/hotels/3803-h.jpg",
+    "riu-palace-cabo-san-lucas": "https://www.riu.com/images/hotels/3801-h.jpg",
+    "riu-palace-costa-mujeres": "https://www.riu.com/images/hotels/3801-h.jpg",
+    "riu-palace-kukulkan": "https://www.riu.com/images/hotels/2806-h.jpg",
+    "riu-palace-las-americas": "https://www.riu.com/images/hotels/2802-h.jpg",
+    "riu-palace-mexico": "https://www.riu.com/images/hotels/2753-h.jpg",
+    "riu-palace-pacifico": "https://www.riu.com/images/hotels/3756-h.jpg",
+    "riu-palace-peninsula": "https://www.riu.com/images/hotels/2804-h.jpg",
+    "riu-palace-riviera-maya": "https://www.riu.com/images/hotels/2760-h.jpg",
+    "riu-playacar": "https://www.riu.com/images/hotels/2754-h.jpg",
+    "riu-plaza-guadalajara": "https://www.riu.com/images/hotels/3502-h.jpg",
+    "riu-santa-fe": "https://www.riu.com/images/hotels/3802-h.jpg",
+    "riu-tequila": "https://www.riu.com/images/hotels/2752-h.jpg",
+    "riu-vallarta": "https://www.riu.com/images/hotels/3701-h.jpg",
+    "riu-ventura": "https://www.riu.com/images/hotels/2807-h.jpg",
+    "riu-yucatan": "https://www.riu.com/images/hotels/2751-h.jpg",
+    "riu-playa-blanca": "https://www.riu.com/images/hotels/4501-h.jpg",
+    "riu-plaza-panama": "https://www.riu.com/images/hotels/4401-h.jpg",
+    "riu-bambu": "https://www.riu.com/images/hotels/705-h.jpg",
+    "riu-palace-bavaro": "https://www.riu.com/images/hotels/707-h.jpg",
+    "riu-palace-macao": "https://www.riu.com/images/hotels/712-h.jpg",
+    "riu-palace-punta-cana": "https://www.riu.com/images/hotels/706-h.jpg",
+    "riu-republica": "https://www.riu.com/images/hotels/709-h.jpg"
+};
+
+// Evento cuando cambias el select (Muestra la imagen en el index)
+select.addEventListener('change', () => {
+    if (select.value !== "") {
+        button.disabled = false;
+        button.style.backgroundColor = "#d10019";
+        button.style.cursor = "pointer";
+
+        if (hotelImages[select.value]) {
+            image.src = hotelImages[select.value];
+        }
+    }
+});
+
+// Evento cuando haces clic en Check-in (Guarda datos y redirige)
+button.addEventListener('click', () => {
+    const selectedValue = select.value;
+    // Obtenemos el texto visible del hotel seleccionado
+    const selectedText = select.options[select.selectedIndex].text; 
+    const selectedImage = hotelImages[selectedValue];
+
+    // Guardamos el nombre y la imagen en el navegador
+    localStorage.setItem('hotelNombre', selectedText);
+    if(selectedImage) {
+        localStorage.setItem('hotelImagen', selectedImage);
+    }
+
+    // Redirigir
+    window.location.href = "formulario.html";
+});
+// --- LÓGICA DEL MODAL ---
+const linkMisReservas = document.getElementById('linkMisReservas');
+const linkRiuClass = document.getElementById('linkRiuClass');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.getElementById('closeModal');
+const togglePassword = document.getElementById('togglePassword');
+const inputPassword = document.getElementById('loginPassword');
+
+// Función para abrir el modal
+function abrirModal(e) {
+    e.preventDefault(); // Evita que la página salte arriba
+    loginModal.style.display = 'flex';
+}
+
+// Asignar los clics a los enlaces del menú
+if(linkMisReservas) linkMisReservas.addEventListener('click', abrirModal);
+if(linkRiuClass) linkRiuClass.addEventListener('click', abrirModal);
+
+// Seleccionamos todos los enlaces que tengan la clase 'red-link'
+const enlacesRedLink = document.querySelectorAll('.red-link');
+
+// Le asignamos la función de abrir el modal a cada uno de ellos
+enlacesRedLink.forEach(enlace => {
+    enlace.addEventListener('click', abrirModal);
+});
+
+// Cerrar el modal al hacer clic en la "X"
+closeModal.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+
+// Cerrar el modal al hacer clic fuera del cuadro blanco
+window.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+        loginModal.style.display = 'none';
+    }
+});
+
+// Mostrar/Ocultar contraseña con el icono del ojito
+togglePassword.addEventListener('click', () => {
+    const type = inputPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    inputPassword.setAttribute('type', type);
+});
+
+const langDropdown = document.querySelector('.lang-dropdown');
+const langToggle = document.querySelector('.lang-toggle');
+
+// Abrir / cerrar
+langToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    langDropdown.classList.toggle('active');
+});
+
+// Cerrar si haces clic fuera
+window.addEventListener('click', (e) => {
+    if (!e.target.closest('.lang-dropdown')) {
+        langDropdown.classList.remove('active');
+    }
+});
+
+</script>
+
+</body>
+</html>
