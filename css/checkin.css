@@ -221,7 +221,8 @@ body {
     line-height: 1.1; 
     color: #2b2b2b; 
     margin-bottom: 30px;
-    white-space: nowrap; /* Evita que la palabra "Check-in" se parta a la mitad */
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .hero-section p { 
@@ -573,3 +574,50 @@ body {
     padding: 10px;
 }
 
+@media screen and (max-width:768px){
+
+    .navbar{
+        padding:15px;
+    }
+
+    .content-section{
+        max-width:100%;
+        padding:20px;
+    }
+
+    .hero-section{
+        padding-top:40px;
+    }
+
+    .hero-section h1{
+        font-size:42px;
+        white-space:normal;
+    }
+
+    .hero-section p{
+        font-size:18px;
+    }
+
+    .divider{
+        width:120px;
+    }
+
+    .select-wrapper,
+    .info-card{
+        max-width:100%;
+    }
+
+    .hotel-select,
+    .btn-checkin{
+        width:100%;
+    }
+
+    .fixed-image-container{
+        display:none;
+    }
+
+    .modal-box{
+        width:95%;
+        padding:20px;
+    }
+}
