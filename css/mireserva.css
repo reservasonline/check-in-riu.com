@@ -385,3 +385,12 @@ body {
     width: 20px; /* Tamaño fijo para que los nombres queden rectos aunque cambie el icono */
     text-align: center;
 }
+html, body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
