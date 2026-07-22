@@ -106,12 +106,12 @@ body {
 
 /* TITULO GRANDE */
 .hero-section h1 {
-    font-size: 40px; /* 🔥 baja de 90 a 80 */
+    font-size: 48px;
     font-weight: 800;
     color: #2b2b2b;
     line-height: 1.1;
-    margin-bottom: 30px;
-    max-width: 900px;
+    margin-bottom: 20px;
+    max-width: 700px;
 }
 
 
@@ -161,12 +161,11 @@ body {
         display: none;
     }
 }
-.hero-section h1 {
-    white-space: nowrap;
-}
-.white-panel {
-    width: 60%; /* 🔥 más espacio */
-    padding: 80px 80px;
+
+.white-panel{
+    width:60%;
+    max-width:700px;
+    padding:40px;
 }
 
 /* =========================================
@@ -524,4 +523,88 @@ html, body{
 img{
     max-width:100%;
     height:auto;
+}
+
+/* ==========================
+   RESPONSIVE MÓVILES
+========================== */
+@media (max-width:768px){
+
+    html,body{
+        overflow-x:hidden;
+    }
+
+    .fixed-image-container{
+        display:none;
+    }
+
+    .white-panel{
+        width:100%;
+        max-width:100%;
+        padding:20px;
+    }
+
+    .hero-section{
+        padding:20px 0;
+    }
+
+    .hero-section h1{
+        font-size:34px;
+        max-width:100%;
+        line-height:1.2;
+        margin-bottom:15px;
+    }
+
+    .pre-title{
+        font-size:16px;
+    }
+
+    .availability-info{
+        font-size:18px;
+    }
+
+    .divider{
+        width:120px;
+    }
+
+    .checkin-container{
+        width:100%;
+        max-width:100%;
+    }
+
+    .checkin-form-box{
+        padding:20px;
+    }
+
+    .form-row{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .col-half{
+        width:100%;
+    }
+
+    .btn-siguiente{
+        width:100%;
+        justify-content:center;
+    }
+
+    .social-logins{
+        flex-direction:column;
+    }
+
+    .modal-box{
+        width:95%;
+        padding:20px;
+    }
+
+    .navbar{
+        padding:12px 15px;
+    }
+
+    .nav-right{
+        display:none;
+    }
+
 }
